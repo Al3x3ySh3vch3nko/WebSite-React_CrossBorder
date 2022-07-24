@@ -1,38 +1,191 @@
-.App {
+/* CSS Reset */
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* ROOT */
+
+@font-face {
+  font-family: 'Jura';
+  src: url('./Fonts/Jura/Jura-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+:root {
+  --1-color: #ffffff;
+  --2-color: rgba(239, 195, 19, 0.9);
+  --3-color: rgb(0, 0, 0);
+}
+
+/* TAGS */
+body
+{
+  font-family: 'Jura';
+  background-color: var(--3-color);
+}
+
+h1
+{
+  font-size: 3rem;
   text-align: center;
+  font-weight: bold;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* HEADER */
+header
+{
+  height: 90px;
+  background-color: var(--2-color);
+  color: var(--3-color);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+} 
+
+.header__unit-left
+{
+  background: url(/src/Images/icons8-arrow-91.png) no-repeat center;
+  background-size: 80%;
+  width: 70px;
+  height: 70px;
+  flex-grow: 0;
+} 
+.header__unit-right
+{
+  flex-grow: 1;
 }
 
-.App-link {
-  color: #61dafb;
+/* MAIN */
+main
+{
+  background-color: var(--3-color);
+  max-width: 1900px;
+  margin: 0px 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* CARD COMPONENT*/
+.card
+{
+background-color: var(--2-color);
+display: grid; 
+grid-template-columns:33% 1fr; 
+grid-template-rows: 1fr 1fr; 
+gap: 0px 0px; 
+grid-template-areas: 
+  "card__name card__info"
+  "card__name card__map"; 
+margin: 1rem 0;
+}
+
+.card__name 
+{  
+  grid-area: card__name; 
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  border-right: solid var(--3-color) 2px;
+}
+
+.card__logo
+{
+  margin-left: 27px;
+  background: url(/src/Images/baltia.svg) no-repeat center;
+  background-size: 50px;
+  background-color: var(--1-color);
+  width: 70px;
+  height: 70px;
+}
+
+.card__indicator
+{
+  color: var(--3-color);
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.card__info 
+{ 
+  padding: 15px 27px;
+  grid-area: card__info; 
+  color: var(--3-color);
+  line-height: 1.4;
+  font-size: 20px;
+}
+
+.fab
+{
+  padding: 20px 13px 10px 0;
+}
+.fab:hover
+{
+  color: var(--1-color);
+  width: 33px;
+  height: 33px;
+}
+.fab:before
+{
+  width: 33px;
+  height: 33px;
+}
+
+.card__map 
+{ 
+  grid-area: card__map; 
+  border-top: solid 2px var(--3-color);
+}
+
+/* EFFECTS */
+
+.blue
+{
+  color: var(--1-color);
 }
